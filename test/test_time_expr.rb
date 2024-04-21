@@ -31,4 +31,9 @@ class TestTimeExpr < Minitest::Test
   def test_dsl_with_object
     assert_equal Time.new(2020, 1, 27), TimeExpr.build { |t| t.weeks(4) - t.days(2) }.from_now
   end
+
+  using TimeExpr::T
+  def test_T
+    assert_equal Time.new(2020, 1, 27), T { |t| t.weeks(4) - t.days(2) }.from_now
+  end
 end

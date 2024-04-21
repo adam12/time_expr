@@ -226,6 +226,14 @@ module TimeExpr
     end
   end
 
+  module T
+    refine Object do
+      def T(&blk)
+        TimeExpr.build(&blk)
+      end
+    end
+  end
+
   def self.build(&blk)
     if blk.arity == 1
       yield DSL.new
