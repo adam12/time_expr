@@ -232,6 +232,14 @@ module TimeExpr
         TimeExpr.build(&blk)
       end
     end
+
+    def T(&blk)
+      TimeExpr.build(&blk)
+    end
+
+    def self.activate
+      Object.include(T)
+    end
   end
 
   def self.build(&blk)
